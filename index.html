@@ -7,6 +7,11 @@
   <title>dinnerladies — JEANS</title>
   <link rel="icon" type="image/png" href="favicon.png">
 
+  <!-- Open-source web fallback that matches Myriad Pro on mobile & non-Adobe devices -->
+  <link rel="preconnect" href="https://googleapis.com">
+  <link rel="preconnect" href="https://gstatic.com" crossorigin>
+  <link href="https://googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
+
   <style>
     * {
       margin: 0;
@@ -16,7 +21,7 @@
 
     body {
       min-height: 100vh;
-      background-color: #a9cce3;
+      background-color: #1c2533;
 
       /* Your uploaded image */
       background-image: url("denim-texture_page-0001.jpg");
@@ -26,13 +31,14 @@
       background-attachment: fixed;
 
       color: #ffffff;
-      font-family: Arial, Helvetica, sans-serif;
+      font-family: "Myriad Pro", Myriad, "PT Sans", "Segoe UI", Arial, sans-serif;
     }
 
     .name {
       position: absolute;
       top: 25px;
       left: 30px;
+      color: #ffffff !important;
       font-size: 16px;
       font-weight: 400;
       letter-spacing: -0.7px;
@@ -42,6 +48,7 @@
       position: absolute;
       bottom: 25px;
       right: 30px;
+      color: #ffffff !important;
       font-size: 16px;
       font-weight: 400;
       letter-spacing: -0.7px;
