@@ -4,320 +4,72 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="dinnerladies — JEANS. Independent music.">
+
   <title>dinnerladies — JEANS</title>
 
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap');
-
-    :root {
-      --paper: #f1efe8;
-      --ink: #171714;
-      --red: #e33b25;
-      --line: #aaa79e;
-    }
-
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
+      box-sizing: border-box;
     }
 
     body {
-      background: var(--paper);
-      color: var(--ink);
-      font-family: 'Space Grotesk', sans-serif;
-      padding: 24px;
+      min-height: 100vh;
+      background-color: #a9cce3;
+
+      /* Subtle denim weave */
+      background-image:
+        repeating-linear-gradient(
+          0deg,
+          transparent 0px,
+          rgba(255,255,255,0.09) 1px,
+          transparent 2px,
+          transparent 4px
+        ),
+        repeating-linear-gradient(
+          90deg,
+          transparent 0px,
+          rgba(35,75,110,0.10) 1px,
+          transparent 2px,
+          transparent 4px
+        ),
+        linear-gradient(
+          135deg,
+          #b5d5e9,
+          #91b9d6
+        );
+
+      color: #171717;
+      font-family: Arial, Helvetica, sans-serif;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
+    .name {
+      position: absolute;
+      top: 25px;
+      left: 30px;
+      font-size: 16px;
+      font-weight: 400;
+      letter-spacing: -0.7px;
     }
 
-    a:hover {
-      color: var(--red);
+    .album {
+      position: absolute;
+      bottom: 25px;
+      right: 30px;
+      font-size: 16px;
+      font-weight: 400;
+      letter-spacing: -0.7px;
     }
 
-    .topbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid var(--ink);
-      padding-bottom: 16px;
-      font-family: 'DM Mono', monospace;
-      font-size: 11px;
-      text-transform: uppercase;
-    }
-
-    .logo {
-      font-size: 17px;
-      font-weight: 700;
-      letter-spacing: -1px;
-    }
-
-    nav {
-      display: flex;
-      gap: 22px;
-    }
-
-    .hero {
-      min-height: 75vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 65px 0;
-      border-bottom: 1px solid var(--ink);
-    }
-
-    .small-label {
-      font-family: 'DM Mono', monospace;
-      font-size: 11px;
-      text-transform: uppercase;
-      margin-bottom: 22px;
-    }
-
-    h1 {
-      font-size: clamp(65px, 15vw, 190px);
-      line-height: 0.78;
-      letter-spacing: -0.105em;
-      font-weight: 700;
-      text-transform: lowercase;
-    }
-
-    .album-title {
-      color: var(--red);
-      font-size: clamp(45px, 10vw, 125px);
-      line-height: 1;
-      letter-spacing: -0.08em;
-      margin-top: 28px;
-      font-weight: 600;
-    }
-
-    .release {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-top: 55px;
-      font-family: 'DM Mono', monospace;
-      font-size: 12px;
-      text-transform: uppercase;
-    }
-
-    .section {
-      padding: 65px 0;
-      border-bottom: 1px solid var(--ink);
-    }
-
-    .section-heading {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      margin-bottom: 30px;
-    }
-
-    h2 {
-      font-size: clamp(30px, 6vw, 65px);
-      letter-spacing: -0.07em;
-      text-transform: uppercase;
-    }
-
-    .number {
-      font-family: 'DM Mono', monospace;
-      font-size: 11px;
-    }
-
-    .artwork {
-      background: #d5d1c5;
-      border: 1px solid var(--ink);
-      aspect-ratio: 1 / 1;
-      max-width: 580px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      margin: 0 auto;
-      padding: 30px;
-    }
-
-    .artwork span {
-      font-size: clamp(40px, 10vw, 100px);
-      font-weight: 700;
-      letter-spacing: -0.1em;
-    }
-
-    .caption {
-      font-family: 'DM Mono', monospace;
-      font-size: 11px;
-      margin-top: 12px;
-      text-transform: uppercase;
-    }
-
-    .about-text {
-      font-size: clamp(22px, 4vw, 42px);
-      line-height: 1.15;
-      max-width: 850px;
-      letter-spacing: -0.045em;
-    }
-
-    .placeholder-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 15px;
-    }
-
-    .placeholder {
-      background: #dedbd2;
-      border: 1px solid var(--line);
-      aspect-ratio: 4 / 3;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-family: 'DM Mono', monospace;
-      font-size: 11px;
-      text-transform: uppercase;
-    }
-
-    .contact {
-      font-size: clamp(28px, 6vw, 65px);
-      letter-spacing: -0.07em;
-    }
-
-    footer {
-      padding: 25px 0 10px;
-      display: flex;
-      justify-content: space-between;
-      font-family: 'DM Mono', monospace;
-      font-size: 10px;
-      text-transform: uppercase;
-    }
-
-    @media (max-width: 600px) {
-      body {
-        padding: 16px;
-      }
-
-      .topbar {
-        align-items: flex-start;
-        gap: 15px;
-        flex-direction: column;
-      }
-
-      nav {
-        gap: 16px;
-      }
-
-      .hero {
-        min-height: 65vh;
-      }
-
-      .release {
-        gap: 20px;
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .placeholder-grid {
-        grid-template-columns: 1fr;
-      }
-
-      footer {
-        gap: 12px;
-        flex-direction: column;
-      }
-    }
   </style>
 </head>
 
 <body>
 
-  <header class="topbar">
-    <a href="#" class="logo">dinnerladies®</a>
+  <div class="name">dinnerladies</div>
 
-    <nav>
-      <a href="#music">Music</a>
-      <a href="#about">About</a>
-      <a href="#visuals">Visuals</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
-
-  <main>
-
-    <section class="hero">
-      <p class="small-label">Independent music / Est. 2026</p>
-
-      <h1>dinner<br>ladies</h1>
-
-      <p class="album-title">JEANS</p>
-
-      <div class="release">
-        <span>Debut album</span>
-        <span>Out 25.12.26</span>
-      </div>
-    </section>
-
-    <section class="section" id="music">
-      <div class="section-heading">
-        <h2>01 — Music</h2>
-        <span class="number">THE RELEASE</span>
-      </div>
-
-      <div class="artwork">
-        <span>JEANS</span>
-      </div>
-
-      <p class="caption">JEANS — Album artwork coming soon</p>
-
-      <p style="margin-top: 30px; font-family: 'DM Mono', monospace; font-size: 12px;">
-        LISTEN TO THE ALBUM — COMING SOON
-      </p>
-    </section>
-
-    <section class="section" id="about">
-      <div class="section-heading">
-        <h2>02 — About</h2>
-        <span class="number">WHO WE ARE</span>
-      </div>
-
-      <p class="about-text">
-        dinnerladies are an independent music project.
-        A debut album called JEANS. More to come.
-      </p>
-    </section>
-
-    <section class="section" id="visuals">
-      <div class="section-heading">
-        <h2>03 — Visuals</h2>
-        <span class="number">PICTURES / FILMS / OTHER</span>
-      </div>
-
-      <div class="placeholder-grid">
-        <div class="placeholder">Photography coming soon</div>
-        <div class="placeholder">Video coming soon</div>
-      </div>
-    </section>
-
-    <section class="section" id="contact">
-      <div class="section-heading">
-        <h2>04 — Contact</h2>
-      </div>
-
-      <p class="contact">Get in touch.</p>
-      <p class="caption">Email / Instagram / SoundCloud / Bandcamp</p>
-    </section>
-
-  </main>
-
-  <footer>
-    <span>dinnerladies © 2026</span>
-    <span>JEANS — 25.12.26</span>
-    <a href="#">Back to top ↑</a>
-  </footer>
+  <div class="album">JEANS</div>
 
 </body>
 </html>
