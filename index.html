@@ -16,7 +16,7 @@
 
     body {
       min-height: 100vh;
-      background-color: #1c2533;
+      background-color: #a9cce3;
 
       /* Your uploaded image */
       background-image: url("denim-texture_page-0001.jpg");
@@ -25,34 +25,26 @@
       background-repeat: no-repeat;
       background-attachment: fixed;
 
+      color: #ffffff;
       font-family: Arial, Helvetica, sans-serif;
     }
 
-    /* Embossed / debossed denim text effect */
-    .name,
-    .album {
-      position: absolute;
-      font-size: 18px;
-      font-weight: 700;
-      letter-spacing: -0.4px;
-      
-      /* Slightly darker than the denim weave so it looks pressed in */
-      color: rgba(12, 17, 26, 0.85);
-      
-      /* Top-left inner shadow + bottom-right fabric catchlight */
-      text-shadow: 
-        -1px -1px 1px rgba(0, 0, 0, 0.9),
-         1px  1px 1px rgba(175, 195, 225, 0.35);
-    }
-
     .name {
+      position: absolute;
       top: 25px;
       left: 30px;
+      font-size: 16px;
+      font-weight: 400;
+      letter-spacing: -0.7px;
     }
 
     .album {
+      position: absolute;
       bottom: 25px;
       right: 30px;
+      font-size: 16px;
+      font-weight: 400;
+      letter-spacing: -0.7px;
     }
 
   </style> 
