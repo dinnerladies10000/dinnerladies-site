@@ -3,13 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>dinnerladies — JEANS</title>
-  <link rel="icon" href="/favicon.ico?v=4" sizes="any">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png?v=4">
-  <link rel="apple-touch-icon" sizes="180x180" href="/favicon.png?v=4">
 
-  <!-- Open-source web fallback that matches Myriad Pro on mobile & non-Adobe devices -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
@@ -23,46 +18,33 @@
 
     body {
       min-height: 100vh;
-      background-color: #1c2533;
-
-      /* Your uploaded image */
-      background-image: url("denim-texture_page-0001.jpg");
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-
+      background: #1c2533 url("denim-texture_page-0001.jpg") center / cover no-repeat fixed;
       color: #ffffff;
       font-family: "Myriad Pro", Myriad, "PT Sans", "Segoe UI", Arial, sans-serif;
     }
 
-    .name {
+    .label {
       position: absolute;
-      top: 25px;
-      left: 30px;
-      color: #ffffff !important;
       font-size: 16px;
       font-weight: 400;
       letter-spacing: -0.7px;
+    }
+
+    .name {
+      top: 25px;
+      left: 30px;
     }
 
     .album {
-      position: absolute;
       bottom: 25px;
       right: 30px;
-      color: #ffffff !important;
-      font-size: 16px;
-      font-weight: 400;
-      letter-spacing: -0.7px;
     }
-  </style> 
+  </style>
 </head>
-
 <body>
 
-  <div class="name">dinnerladies</div>
-
-  <div class="album">JEANS</div>
+  <div class="label name">dinnerladies</div>
+  <div class="label album">JEANS</div>
 
 </body>
 </html>
