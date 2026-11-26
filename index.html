@@ -1,50 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>dinnerladies — JEANS</title>
+<html>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <head>
+<meta charset="UTF-8">
+<title>dinnerladies JEANS</title>
+<link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
 
-    body {
-      min-height: 100vh;
-      background: #1c2533 url("denim-texture_page-0001.jpg") center / cover no-repeat fixed;
-      color: #ffffff;
-      font-family: "Myriad Pro", Myriad, "PT Sans", "Segoe UI", Arial, sans-serif;
-    }
 
-    .label {
-      position: absolute;
-      font-size: 16px;
-      font-weight: 400;
-      letter-spacing: -0.7px;
-    }
+<style>
+  body {
+    margin: 0;
+    background-image: url("denim-texture_page-0001.jpg");
+    background-size: cover;
+    color: #ffffff;
+    font-family: "Myriad Pro", "PT Sans", sans-serif;
+    font-size: 16px;
+    letter-spacing: -0.7px;
+  }
 
-    .name {
-      top: 42px;
-      left: 12px;
-    }
+.artist {
+    position: absolute;
+    top: 42px;
+    left: 12px;
+    mix-blend-mode: overlay;
+  }
 
-    .album {
-      bottom: 24px;
-      right: 32px;
-    }
-  </style>
+  .album {
+    position: absolute;
+    bottom: 24px;
+    right: 32px;
+    mix-blend-mode: overlay;
+  }
+</style>
 </head>
 <body>
 
-  <div class="label name">dinnerladies</div>
-  <div class="label album">JEANS</div>
+<div class="artist">dinnerladies</div>
+<div class="album">JEANS</div>
 
 </body>
+
 </html>
