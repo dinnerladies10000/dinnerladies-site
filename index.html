@@ -75,17 +75,10 @@
 <audio id="s" src="buckle in, this is gonna be a BUMPY ride.mp3" playsinline></audio>
 
 <script>
-  const star = document.getElementById('star');
-  const audio = document.getElementById('s');
-
-  star.addEventListener('click', function () {
-    audio.load();
-    audio.play().then(() => {
-      star.style.opacity = 0;
-    }).catch(e => {
-      alert(e.name + ': ' + e.message);
-    });
-  });
+  document.getElementById('star').onclick = function () {
+    document.getElementById('s').play();
+    this.style.opacity = 0;
+  };
 </script>
 
 </body>
