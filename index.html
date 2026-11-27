@@ -49,9 +49,9 @@
     top: 150vh;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: white;
-    text-decoration: none;
     mix-blend-mode: overlay;
+    cursor: pointer;
+    transition: opacity 1s;
   }
 
   @media (max-width: 600px) {
@@ -70,7 +70,8 @@
 <div class="bg"></div>
 <div class="artist">dinnerladies</div>
 <div class="album">JEANS</div>
-<a href="song1.mp3" class="star">&#9733;</a>
+<div class="star" onclick="document.getElementById('s').play(); this.style.opacity = 0;">&#9733;</div>
+<audio id="s" src="song1.mp3"></audio>
 
 </body>
 
