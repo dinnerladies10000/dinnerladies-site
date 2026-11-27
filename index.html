@@ -1,47 +1,45 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <title>dinnerladies JEANS</title>
 <link rel="icon" href="favicon.png">
 
 <style>
   html, body {
     margin: 0;
-    padding: 0;
     background-color: #1c2533;
   }
 
   body {
     height: 200vh;
     color: white;
-    font-family: "Myriad Pro", -apple-system, sans-serif;
+    font-family: "Myriad Pro", sans-serif;
     font-size: 100px;
     letter-spacing: -0.7px;
   }
 
   .bg {
     position: fixed;
-    inset: -20vh -10vw;
-    background: url("denim-texture_page-0001.jpg") center / cover no-repeat;
+    top: -15vh;
+    left: 0;
+    width: 100vw;
+    height: 130vh;
+    background: url("denim-texture_page-0001.jpg") center / cover;
     transform: scale(1.4);
     pointer-events: none;
-    z-index: -1;
   }
 
   .artist {
     position: absolute;
-    top: calc(42px + env(safe-area-inset-top));
+    top: 42px;
     left: 12px;
     mix-blend-mode: overlay;
   }
 
   .album {
     position: absolute;
-    top: calc(100svh - 140px);
+    top: calc(100vh - 140px);
     right: 32px;
     mix-blend-mode: overlay;
   }
@@ -54,7 +52,6 @@
     mix-blend-mode: overlay;
     cursor: pointer;
     -webkit-tap-highlight-color: transparent;
-    user-select: none;
     transition: opacity 1s;
   }
 
@@ -64,7 +61,7 @@
     }
 
     .album {
-      top: calc(100svh - 80px);
+      top: calc(100vh - 80px);
     }
   }
 </style>
@@ -74,21 +71,8 @@
 <div class="bg"></div>
 <div class="artist">dinnerladies</div>
 <div class="album">JEANS</div>
-<div class="star" id="star">★</div>
+<div class="star" onclick="document.getElementById('s').play(); this.style.opacity = 0;">★</div>
 <audio id="s" src="buckle in, this is gonna be a BUMPY ride.mp3" preload="auto" playsinline></audio>
-
-<script>
-  const star = document.getElementById('star');
-  const audio = document.getElementById('s');
-
-  star.addEventListener('click', () => {
-    audio.play().then(() => {
-      star.style.opacity = '0';
-    }).catch((err) => {
-      alert('Audio error: ' + err.message);
-    });
-  });
-</script>
 
 </body>
 </html>
