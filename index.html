@@ -8,9 +8,9 @@
 <style>
   html, body {
     margin: 0;
-    height: 100%;
-    overflow: hidden;
-    background color: white
+    height: 200vh;
+    overscroll-behavior: none;
+    background-color: #1c2533;
     color: white;
     font-family: "Myriad Pro", sans-serif;
     font-size: 100px;
@@ -30,22 +30,34 @@
   }
 
   .artist {
-    position: fixed;
+    position: absolute;
     top: 42px;
     left: 12px;
     mix-blend-mode: overlay;
   }
 
   .album {
-    position: fixed;
-    bottom: 24px;
+    position: absolute;
+    top: calc(100vh - 140px);
     right: 32px;
+    mix-blend-mode: overlay;
+  }
+
+  .star {
+    position: absolute;
+    top: 150vh;
+    left: 50%;
+    transform: translate(-50%, -50%);
     mix-blend-mode: overlay;
   }
 
   @media (max-width: 600px) {
     body {
       font-size: 48px;
+    }
+
+    .album {
+      top: calc(100vh - 80px);
     }
   }
 </style>
@@ -55,6 +67,7 @@
 <div class="bg"></div>
 <div class="artist">dinnerladies</div>
 <div class="album">JEANS</div>
+<div class="star">&#9733;</div>
 
 </body>
 
