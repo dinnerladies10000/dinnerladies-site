@@ -8,31 +8,22 @@
 <style>
   body {
     margin: 0;
-    overflow: hidden;
-    background: #1c2533;
+    min-height: 100vh;
+    background-image: url("denim-texture_page-0001.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     color: white;
     font-family: "Myriad Pro", sans-serif;
-    font-size: 140px;
-    letter-spacing: -0.9px;
-    user-select: none;
+    font-size: 100px;
+    letter-spacing: -0.7px;
   }
 
-  canvas {
-    display: block;
-    cursor: grab;
-    touch-action: none;
-  }
-
-  canvas:active {
-    cursor: grabbing;
-  }
-
-  .artist {
+.artist {
     position: absolute;
     top: 42px;
     left: 12px;
     mix-blend-mode: overlay;
-    pointer-events: none;
   }
 
   .album {
@@ -40,101 +31,14 @@
     bottom: 24px;
     right: 32px;
     mix-blend-mode: overlay;
-    pointer-events: none;
   }
 </style>
 </head>
 <body>
 
-<canvas id="c"></canvas>
 <div class="artist">dinnerladies</div>
 <div class="album">JEANS</div>
 
-<script>
-  var c = document.getElementById("c");
-  var ctx = c.getContext("2d");
-  var img = new Image();
-  img.src = "denim-texture_page-0001.jpg";
-
-  var grid = 12;
-  var pts = [];
-  var mouse = { x: 0, y: 0, down: false };
-  var tick = 0;
-
-  function resize() {
-    c.width = window.innerWidth;
-    c.height = window.innerHeight;
-    pts = [];
-    for (var y = 0; y <= grid; y++) {
-      for (var x = 0; x <= grid; x++) {
-        var px = (x / grid) * c.width;
-        var py = (y / grid) * c.height;
-        var edge = (x === 0 || x === grid || y === 0 || y === grid);
-        pts.push({ x: px, y: py, ox: px, oy: py, vx: 0, vy: 0, pin: edge });
-      }
-    }
-  }
-
-  window.onresize = resize;
-  c.onpointerdown = function(e) { mouse.down = true; mouse.x = e.clientX; mouse.y = e.clientY; };
-  window.onpointermove = function(e) { mouse.x = e.clientX; mouse.y = e.clientY; };
-  window.onpointerup = function() { mouse.down = false; };
-
-  function draw() {
-    requestAnimationFrame(draw);
-    
-    tick++;
-    if (tick % 3 !== 0) return;
-
-    for (var i = 0; i < pts.length; i++) {
-      var p = pts[i];
-      if (p.pin) continue;
-
-      if (mouse.down) {
-        var dx = mouse.x - p.x;
-        var dy = mouse.y - p.y;
-        var d = Math.sqrt(dx * dx + dy * dy);
-        if (d < 200) {
-          var pull = (200 - d) / 200;
-          p.vx += dx * pull * 0.35;
-          p.vy += dy * pull * 0.35;
-        }
-      }
-      p.vx += (p.ox - p.x) * 0.25;
-      p.vy += (p.oy - p.y) * 0.25;
-      p.vx *= 0.82;
-      p.vy *= 0.82;
-      p.x = Math.floor(p.x + p.vx);
-      p.y = Math.floor(p.y + p.vy);
-    }
-
-    if (img.complete && img.width > 0) {
-      var scale = Math.max(c.width / img.width, c.height / img.height);
-      var sw = c.width / scale;
-      var sh = c.height / scale;
-      var sx = (img.width - sw) / 2;
-      var sy = (img.height - sh) / 2;
-
-      ctx.drawImage(img, sx, sy, sw, sh, 0, 0, c.width, c.height);
-
-      for (var y = 0; y < grid; y++) {
-        for (var x = 0; x < grid; x++) {
-          var p1 = pts[y * (grid + 1) + x];
-          var p2 = pts[y * (grid + 1) + x + 1];
-          var p3 = pts[(y + 1) * (grid + 1) + x];
-          ctx.drawImage(
-            img,
-            sx + (x / grid) * sw, sy + (y / grid) * sh, sw / grid, sh / grid,
-            p1.x, p1.y, p2.x - p1.x, p3.y - p1.y
-          );
-        }
-      }
-    }
-  }
-
-  resize();
-  img.onload = draw;
-</script>
-
 </body>
+
 </html>
