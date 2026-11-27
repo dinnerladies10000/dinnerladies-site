@@ -72,15 +72,22 @@
 <div class="artist">dinnerladies</div>
 <div class="album">JEANS</div>
 <div class="star" id="star">★</div>
-<audio id="s" src="bumpy-ride.mp3" playsinline></audio>
+<audio id="s" src="bumpy-ride.mp3" preload="auto" playsinline></audio>
 
 <script>
-  document.getElementById('star').onclick = function () {
-    document.getElementById('s').play();
-    this.style.opacity = 0;
-  };
+  const audio = document.getElementById('s');
+  const star = document.getElementById('star');
+
+  star.addEventListener('click', async function () {
+    try {
+      await audio.play();
+      star.style.opacity = 0;
+    } catch (err) {
+      console.error('Audio failed:', err);
+      alert('Audio error: ' + err.name + ' / code ' + (audio.error ? audio.error.code : 'none'));
+    }
+  });
 </script>
 
 </body>
-  
 </html>
