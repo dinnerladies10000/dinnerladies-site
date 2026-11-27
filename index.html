@@ -1,27 +1,23 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>dinnerladies JEANS</title>
+<link rel="icon" href="favicon.png">
 
 <style>
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-
   html, body {
-    background: #1c2533;
+    margin: 0;
+    background-color: #1c2533;
   }
 
   body {
     height: 200vh;
-    color: #101b2a;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-weight: 400;
-    letter-spacing: -1.5px;
+    color: white;
+    font-family: "Myriad Pro", sans-serif;
+    font-size: 100px;
+    letter-spacing: -0.7px;
   }
 
   .bg {
@@ -38,35 +34,15 @@
   .artist {
     position: absolute;
     top: 42px;
-    left: 22px;
-
-    font-size: clamp(25px, 4.5vw, 52px);
-    font-weight: 400;
-    letter-spacing: -2px;
-
-    color: #101b2a;
-    mix-blend-mode: soft-light;
-
-    text-shadow:
-      1px 1px 2px rgba(255,255,255,0.12),
-      -1px -1px 2px rgba(0,0,0,0.25);
+    left: 12px;
+    mix-blend-mode: overlay;
   }
 
   .album {
     position: absolute;
-    top: calc(100vh - 155px);
-    right: 30px;
-
-    font-size: clamp(65px, 11vw, 125px);
-    font-weight: 400;
-    letter-spacing: -5px;
-
-    color: #101b2a;
-    mix-blend-mode: soft-light;
-
-    text-shadow:
-      1px 1px 2px rgba(255,255,255,0.12),
-      -1px -1px 2px rgba(0,0,0,0.3);
+    top: calc(100vh - 140px);
+    right: 32px;
+    mix-blend-mode: overlay;
   }
 
   .star {
@@ -74,51 +50,29 @@
     top: 150vh;
     left: 50%;
     transform: translate(-50%, -50%);
-
-    font-size: 32px;
-    font-weight: 300;
-    color: #101b2a;
-    mix-blend-mode: soft-light;
-
+    mix-blend-mode: overlay;
     cursor: pointer;
     -webkit-tap-highlight-color: transparent;
     transition: opacity 1s;
   }
 
   @media (max-width: 600px) {
-
-    .artist {
-      top: 25px;
-      left: 14px;
-      font-size: 29px;
-      letter-spacing: -1.5px;
+    body {
+      font-size: 48px;
     }
 
     .album {
-      top: calc(100vh - 100px);
-      right: 16px;
-      font-size: 68px;
-      letter-spacing: -3px;
-    }
-
-    .star {
-      font-size: 25px;
+      top: calc(100vh - 80px);
     }
   }
-
 </style>
 </head>
-
 <body>
 
 <div class="bg"></div>
-
 <div class="artist">dinnerladies</div>
-
 <div class="album">JEANS</div>
-
-<div class="star" id="star">✳</div>
-
+<div class="star" id="star">★</div>
 <audio id="s" src="bumpy-ride.m4a" preload="auto" playsinline></audio>
 
 <script>
@@ -131,7 +85,7 @@
       star.style.opacity = 0;
     } catch (err) {
       console.error('Audio failed:', err);
-      alert('Audio error: ' + err.name);
+      alert('Audio error: ' + err.name + ' / code ' + (audio.error ? audio.error.code : 'none'));
     }
   });
 </script>
